@@ -12,6 +12,7 @@ let reset = () => {
 }
 
 const Decreasebreak = () => {  
+  if(parseInt(breakLength.innerHTML) === 1) return;
   breakLength.innerHTML = parseInt(breakLength.innerHTML) - 1;
   updateTimeleft();
 }
@@ -20,6 +21,7 @@ const Increasebreak = () => {
   updateTimeleft();
 }
 const DecreaseSession = () => {
+  if(parseInt(sessionLength.innerHTML) === 1) return;
   sessionLength.innerHTML = parseInt(sessionLength.innerHTML) - 1;
   updateTimeleft();
 }
