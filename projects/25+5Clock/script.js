@@ -22,6 +22,7 @@ const Decreasebreak = () => {
   updateTimeleft();
 }
 const Increasebreak = () => {
+  if(parseInt(breakLength.innerHTML) === 60) return;
   breakLength.innerHTML = parseInt(breakLength.innerHTML) + 1;
   updateTimeleft();
 }
@@ -31,6 +32,7 @@ const DecreaseSession = () => {
   updateTimeleft();
 }
 const IncreaseSession = () => {
+  if(parseInt(sessionLength.innerHTML) === 60) return;
   sessionLength.innerHTML = parseInt(sessionLength.innerHTML) + 1; 
   updateTimeleft();
 }
