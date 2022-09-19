@@ -7,13 +7,16 @@ var myInterval;
 let curMinutes;
 let seconds = 59;
 var started = false;
+let minDisp = "";
+let secDisp = "";
 
 let reset = () => {
   started = false;
   clearInterval(myInterval);
   document.getElementById("break-length").innerHTML = 5;
   document.getElementById("session-length").innerHTML = 25;
-  document.getElementById("time-left").innerHTML = getCurrentMinutes() + ":00";  
+  document.getElementById("time-left").innerHTML = "25:00"; 
+  timerLabel.innerHTML = "Session";
 }
 
 const Decreasebreak = () => {  
@@ -37,11 +40,10 @@ const IncreaseSession = () => {
   updateTimeleft();
 }
 const updateTimeleft = () => {
-  if(timerLabel.innerHTML === "Session") {
-    timerLeft.innerHTML = sessionLength.innerHTML + ":00";
-  } else {
-    timerLeft.innerHTML = breakLength.innerHTML + ":00";
-  }
+  let newVal = (timerLabel.innerHTML === "Session") ? 
+      parseInt(sessionLength.innerHTML) : parseInt(breakLength.innerHTML);
+  newVal = (newVal < 10) ? "0" + newVal : newVal;
+  timerLeft.innerHTML = newVal + ":00";
 }
 const start = () => {
   if(!started) {
@@ -69,18 +71,21 @@ const swapSession = () => {
 }
 let timer = () => {
     if(seconds === 0) {
-    if(curMinutes === 0) {
-        swapSession();
-        curMinutes = getCurrentMinutes();
-    }
-    timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
-    curMinutes--;
-    seconds = 59;
+      if(curMinutes === 0) {
+          timerLeft.innerHTML = "00:00";
+          swapSession();
+          curMinutes = getCurrentMinutes();
+      } else {
+        minDisp = (curMinutes < 10) ? "0" + curMinutes : curMinutes;
+        timerLeft.innerHTML = minDisp + ":" + "00";
+        curMinutes--;
+        seconds = 59;
+      }     
     } else {
-    if(seconds < 10)
-        timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
-    else
-        timerLeft.innerHTML = curMinutes + ":" + seconds;
-    seconds--;
+      minDisp = (curMinutes < 10) ? "0" + curMinutes : curMinutes;
+      secDisp = (seconds < 10) ? "0" + seconds : seconds;
+      console.log(minDisp, secDisp);
+      timerLeft.innerHTML = minDisp + ":" + secDisp;
+      seconds--;
     }
 }
