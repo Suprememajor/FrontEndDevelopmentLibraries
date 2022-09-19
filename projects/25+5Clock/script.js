@@ -41,11 +41,12 @@ const start = () => {
   let seconds = 59;
     let timer = () => {
       if(seconds === 0) {
+        if(curMinutes === 0) {
+          swapSession();
+          curMinutes = getCurrentMinutes();
+        }
+        timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
         curMinutes--;
-        if(seconds < 10)
-          timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
-        else
-          timerLeft.innerHTML = curMinutes + ":" + seconds;
         seconds = 59;
       } else {
         if(seconds < 10)
@@ -53,7 +54,7 @@ const start = () => {
         else
           timerLeft.innerHTML = curMinutes + ":" + seconds;
         seconds--;
-      }      
+      }
     }
     setInterval(timer, 1000);
 }
@@ -62,5 +63,12 @@ const getCurrentMinutes = () => {
     return parseInt(sessionLength.innerHTML);
   } else {
     return parseInt(breakLength.innerHTML);
+  } 
+}
+const swapSession = () => {
+  if(timerLabel.innerHTML === "Session") {
+    timerLabel.innerHTML = "Break";
+  } else {
+    timerLabel.innerHTML = "Session";
   }
 }
