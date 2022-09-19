@@ -3,7 +3,10 @@ let timerLabel = document.getElementById("timer-label");
 let timerLeft = document.getElementById("time-left");
 let sessionLength = document.getElementById("session-length");
 let breakLength = document.getElementById("break-length");
-  
+var myInterval;
+let curMinutes;
+let seconds = 59;
+var started = false;
 
 let reset = () => {
   document.getElementById("break-length").innerHTML = 5;
@@ -37,26 +40,14 @@ const updateTimeleft = () => {
   }
 }
 const start = () => {
-  let curMinutes = getCurrentMinutes() - 1;
-  let seconds = 59;
-    let timer = () => {
-      if(seconds === 0) {
-        if(curMinutes === 0) {
-          swapSession();
-          curMinutes = getCurrentMinutes();
-        }
-        timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
-        curMinutes--;
-        seconds = 59;
-      } else {
-        if(seconds < 10)
-          timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
-        else
-          timerLeft.innerHTML = curMinutes + ":" + seconds;
-        seconds--;
-      }
-    }
-    setInterval(timer, 1000);
+  if(!started) {
+    curMinutes = getCurrentMinutes() - 1;
+    myInterval = setInterval(timer, 1000);
+    started = true;
+  } else {
+    clearInterval(myInterval);
+    started = false;
+  }
 }
 const getCurrentMinutes = () => {
   if(timerLabel.innerHTML === "Session") {
@@ -71,4 +62,21 @@ const swapSession = () => {
   } else {
     timerLabel.innerHTML = "Session";
   }
+}
+let timer = () => {
+    if(seconds === 0) {
+    if(curMinutes === 0) {
+        swapSession();
+        curMinutes = getCurrentMinutes();
+    }
+    timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
+    curMinutes--;
+    seconds = 59;
+    } else {
+    if(seconds < 10)
+        timerLeft.innerHTML = curMinutes + ":" + "0" + seconds;
+    else
+        timerLeft.innerHTML = curMinutes + ":" + seconds;
+    seconds--;
+    }
 }
