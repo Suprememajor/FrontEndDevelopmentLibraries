@@ -3,6 +3,7 @@ let timerLabel = document.getElementById("timer-label");
 let timerLeft = document.getElementById("time-left");
 let sessionLength = document.getElementById("session-length");
 let breakLength = document.getElementById("break-length");
+let audio = document.getElementById("beep");
 var myInterval;
 let curMinutes;
 let seconds = 59;
@@ -13,6 +14,8 @@ let secDisp = "";
 let reset = () => {
   started = false;
   clearInterval(myInterval);
+  audio.pause();
+  audio.currentTime = 0;
   document.getElementById("break-length").innerHTML = 5;
   document.getElementById("session-length").innerHTML = 25;
   document.getElementById("time-left").innerHTML = "25:00"; 
@@ -73,6 +76,7 @@ let timer = () => {
     if(seconds === 0) {
       if(curMinutes === 0) {
           timerLeft.innerHTML = "00:00";
+          audio.play();
           swapSession();
           curMinutes = getCurrentMinutes();
       } else {
