@@ -9,9 +9,11 @@ let seconds = 59;
 var started = false;
 
 let reset = () => {
+  started = false;
+  clearInterval(myInterval);
   document.getElementById("break-length").innerHTML = 5;
   document.getElementById("session-length").innerHTML = 25;
-  //document.getElementById("time-left").innerHTML = "25:00";
+  document.getElementById("time-left").innerHTML = getCurrentMinutes() + ":00";  
 }
 
 const Decreasebreak = () => {  
