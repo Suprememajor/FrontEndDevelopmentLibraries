@@ -1,6 +1,7 @@
 let expression = "0";
 var safe = true;
 var signed = false;
+var prevRes = "";
 let clearDisp = () => {
     document.getElementById("display").innerHTML = 0;
     expression = "0";
@@ -15,6 +16,8 @@ let getInput = (element) => {
             safe = false;
     if(element === "-" || element === "+" || 
        element === "*" || element === "/") {
+        if(expression === "")
+            expression = prevRes;
         safe = true;
         if(element != "-" && signed) {
             removeOperators();
@@ -29,8 +32,9 @@ let getInput = (element) => {
 };
 
 let compute = () => {
-    document.getElementById("display").innerHTML = eval(expression);
-    expression = "0";
+    prevRes = eval(expression);
+    document.getElementById("display").innerHTML = prevRes;
+    expression = "";
     safe = true;
 }
 
