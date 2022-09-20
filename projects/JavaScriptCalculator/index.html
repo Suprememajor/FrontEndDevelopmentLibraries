@@ -12,21 +12,21 @@
 <body>
     <div class="container-fluid">
         <button class="btn btn-primary" id="equals">=</button>
-        <button class="btn" id="zero">0</button>
-        <button class="btn" id="one">1</button>
-        <button class="btn" id="two">2</button>
-        <button class="btn" id="three">3</button>
-        <button class="btn" id="four">4</button>
-        <button class="btn" id="five">5</button>
-        <button class="btn" id="six">6</button>
-        <button class="btn" id="seven">7</button>
-        <button class="btn" id="eight">8</button>
-        <button class="btn" id="nine">9</button>    
-        <button class="btn" id="add">+</button>    
-        <button class="btn" id="subtract">-</button>    
-        <button class="btn" id="multiply">/</button>    
-        <button class="btn" id="divide">x</button>    
-        <button class="btn" id="decimal">.</button>    
+        <button class="btn" id="zero" onclick="getInput(0)">0</button>
+        <button class="btn" id="one" onclick="getInput(1)">1</button>
+        <button class="btn" id="two" onclick="getInput(2)">2</button>
+        <button class="btn" id="three" onclick="getInput(3)">3</button>
+        <button class="btn" id="four" onclick="getInput(4)">4</button>
+        <button class="btn" id="five" onclick="getInput(5)">5</button>
+        <button class="btn" id="six" onclick="getInput(6)">6</button>
+        <button class="btn" id="seven" onclick="getInput(7)">7</button>
+        <button class="btn" id="eight" onclick="getInput(8)">8</button>
+        <button class="btn" id="nine" onclick="getInput(9)">9</button>    
+        <button class="btn" id="add" onclick="getInput('+')">+</button>    
+        <button class="btn" id="subtract" onclick="getInput('-')">-</button>    
+        <button class="btn" id="multiply" onclick="getInput('/')">/</button>    
+        <button class="btn" id="divide" onclick="getInput('*')">x</button>    
+        <button class="btn" id="decimal" onclick="getInput('.')">.</button>    
         <button class="btn" id="clear" onclick="clearDisp()">AC</button>  
         <div id="disp">
             <p>expression</p>
