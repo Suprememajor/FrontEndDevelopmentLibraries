@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 </head>
 <body onload="refreshQuote();">
-    <div class="wrapper text-center">
+    <div id="main-cont" class="text-center">
         <div id="quote-box">
-            <p id="text"></p>
-            <p id="author"></p>
-            <button id="new-quote" onclick="refreshQuote()">Next Quote</button>
-            <a href="twitter.com/intent/tweet" id="tweet-quote" target="_blank"></a>
+            <p id="text">You are never too old to set another goal or to dream a new dream.</p>
+            <p id="author">Malala Yousafzai</p>
+            <button class="btn btn-primary" id="new-quote" onclick="updateQuote()">New Quote</button>
+            <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank"><i class="fa-brands fa-twitter"></i>Tweet</a>
         </div>
     </div>
     <script src="./script.js"></script>

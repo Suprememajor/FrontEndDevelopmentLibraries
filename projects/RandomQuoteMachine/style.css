@@ -1,0 +1,13 @@
+#quote-box {
+    margin: auto;
+    width: 50%;
+    border: 3px solid blue;
+    padding: 10px;
+  }
+  
+  #main-cont {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  }
