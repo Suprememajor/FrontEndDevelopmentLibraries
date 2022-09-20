@@ -11,20 +11,24 @@
 </head>
 <body>
     <div class="container fluid">
-        <p id="break-label">Break Length</p>
-        <p id="session-label">Session Length</p>
-        <button id="break-decrement" onclick="Decreasebreak()">Reduce Break</button>
-        <button id="session-decrement" onclick="DecreaseSession()">Reduce Session</button>
-        <button id="break-increment" onclick="Increasebreak()">Increase Break</button>
-        <button id="session-increment" onclick="IncreaseSession()">Increase Session</button>
-        <p id="break-length">5</p>
-        <p id="session-length">25</p>
-        <label id="timer-label">Session</label>
-        <label id="time-left">25:00</label>
-        <button id="start_stop" onclick="start()">Start/Stop</button>
-        <button id="reset" onclick="reset()">Reset</button>
-        <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
-      </div>
+        <div id="break-div">
+            <p id="break-label">Break Length</p>
+            <button id="break-decrement" onclick="Decreasebreak()"><i class="fa fa-arrow-down fa-2x"></i></button>
+            <p id="break-length">5</p>
+            <button id="break-increment" onclick="Increasebreak()"><i class="fa fa-arrow-up fa-2x"></i></button>
+        </div>
+        <div id="session-div">
+            <p id="session-label">Session Length</p>        
+            <button id="session-decrement" onclick="DecreaseSession()"><i class="fa fa-arrow-down fa-2x"></i></button>
+            <p id="session-length">25</p>
+            <button id="session-increment" onclick="IncreaseSession()"><i class="fa fa-arrow-up fa-2x"></i></button>
+        </div>      
+            <label id="timer-label">Session</label>
+            <label id="time-left">25:00</label>
+            <button id="start_stop" onclick="start()">Start/Stop</button>
+            <button id="reset" onclick="reset()">Reset</button>
+            <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
+          </div>
     <script src="./script.js"></script>
 </body>
 </html>
